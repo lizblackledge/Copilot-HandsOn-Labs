@@ -1,14 +1,3 @@
-# ----------------------------------------------------------------------------------#
-#  This is the code for the console game Sea Battle written in python by Alex Kap. #
-#  You can play in the sea battle using python compiler on your device, or use an  #
-#  online compiler, such as https://trinket.io/python3 (I recommend this service   #
-#  as it supports all output symbols, but be aware that the compiler gives only    #
-#  60 seconds for data entry). If you want to play with your arrangment of ships   #
-#  on a virtual field, you can keep the path for the temporary input file default  #
-#  or specify your path in line 18 (using the online compiler you can't play in    #
-#  this mode of the game).                                                         #
-# ----------------------------------------------------------------------------------#
-
 from functools import lru_cache
 import random
 import time
