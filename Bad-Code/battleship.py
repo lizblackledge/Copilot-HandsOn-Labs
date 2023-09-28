@@ -797,7 +797,7 @@ def inp():
 
 
 @lru_cache(maxsize=8192)
-def check(
+def checkSomething(
     mes, num
 ):  # checks if ships can be placed in free cells (if the player is cheating)
     global anti_cheat
@@ -829,7 +829,7 @@ def check(
                     anti_cheat = 1
                     return
                 else:
-                    check(tuple(emp_space.copy()), tuple(num_copy.copy()))
+                    checkSomething(tuple(emp_space.copy()), tuple(num_copy.copy()))
                 num_copy = num.copy()
                 emp_space = mes.copy()
                 if anti_cheat == 1:
@@ -846,17 +846,17 @@ def gamemode2():  # provides the player with randomly generated ship placements
         colum = [" A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
         lines = [" 1", " 2", " 3", " 4", " 5", " 6", " 7", " 8", " 9", "10"]
         TD_array = [[1] * 11 for i in range(11)]
-        for i in range(11):
-            for j in range(11):
+        for i in range(0, 11):
+            for j in range(0, 11):
                 TD_array[i][j] = "·"
-                if i > 1 and j != 1:
+                if i > 0 and j != 1:
                     if (i - 1) * 10 + j - 1 in cord:
                         TD_array[i][j] = "■"
-                if i == 1 and j != 1:
+                if i == 0 and j != 0:
                     TD_array[i][j] = colum[j - 1]
-                if j == 1 and i != 1:
+                if j == 0 and i != 0:
                     TD_array[i][j] = lines[i - 1]
-                if i == 1 and j == 1:
+                if i == 0 and j == 0:
                     TD_array[i][j] = " "
         for row in TD_array:
             clr_hum(["  ".join([str(elem) for elem in row])])
@@ -1192,7 +1192,7 @@ def main():
                             break
                     if gen == 1:
                         anti_cheat = 0  # checks if the player is cheating
-                        check(tuple(emp_space), tuple(num))
+                        checkSomething(tuple(emp_space), tuple(num))
                         check.cache_clear()
                     if anti_cheat == 0:
                         break

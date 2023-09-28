@@ -22,6 +22,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { MarketChartComponent } from './market-chart/market-chart.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { MarketChartComponent } from './market-chart/market-chart.component';
     MarketChartComponent
   ],
   imports: [
+    MatDatepickerModule,
+    MatNativeDateModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
